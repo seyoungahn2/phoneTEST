@@ -33,7 +33,6 @@ class SQLC
             pstmt.setString(2, d.getphoneNumber());
             pstmt.setString(3, d.getaddress());
 
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
