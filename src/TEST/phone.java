@@ -4,14 +4,14 @@ import java.sql.*;
 import java.util.Scanner;
 class Data
 {
-    String a, b, c;
+    String name, phoneNumber, address;
 
-    public String getA() {		return a;	}
-    public void setA(String a) {		this.a = a;	}
-    public String getB() {		return b;	}
-    public void setB(String b) {		this.b = b;	}
-    public String getC() {		return c;	}
-    public void setC(String c) {		this.c = c;	}
+    public String getname() {		return name;	}
+    public void setname(String name) {		this.name = name;	}
+    public String getphoneNumber() {		return phoneNumber;	}
+    public void setphoneNumber(String phoneNumber) {		this.phoneNumber = phoneNumber;	}
+    public String getaddress() {		return address;	}
+    public void setaddress(String address) {		this.address = address;	}
 
 }
 class SQLC
@@ -29,12 +29,11 @@ class SQLC
     {
         try {
             pstmt = conn.prepareStatement(" insert into phone values (?,?,?);");  // 입력
-            pstmt.setString(1, d.getA());
-            pstmt.setString(2, d.getB());
-            pstmt.setString(3, d.getC());
+            pstmt.setString(1, d.getname());
+            pstmt.setString(2, d.getphoneNumber());
+            pstmt.setString(3, d.getaddress());
 
-            int num =pstmt.executeUpdate();
-            System.out.println(num);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,11 +84,11 @@ class InputClass
         Scanner scS = new Scanner(System.in);
 
         System.out.print("이름을 입력하세요 : ");
-        d.setA(scS.nextLine());
+        d.setname(scS.nextLine());
         System.out.print("전화번호를 입력하세요 : ");
-        d.setB(scS.nextLine());
+        d.setphoneNumber(scS.nextLine());
         System.out.print("주소을 입력하세요 : ");
-        d.setC(scS.nextLine());
+        d.setaddress(scS.nextLine());
         return d;
 
     }
